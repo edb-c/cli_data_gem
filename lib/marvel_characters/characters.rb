@@ -19,6 +19,7 @@ class MarvelCharacters::Characters
     self.all(number)
   end
 =end
+
   def self.get_character_info(input)
    MarvelCharacters::Scraper.new.get_character_page(input)
   end

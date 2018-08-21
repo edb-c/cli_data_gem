@@ -1,16 +1,25 @@
 class MarvelCharacters::CLI
 
   def call
-    MarvelCharacters::Scraper.new.get_main_page
     puts ""
-    puts "Get Some Interesting Information about the Top 100 Marvel Characters"
+    puts "Get Some Interesting Information about the Top 10 Marvel Characters"
     puts ""
+    main_page = MarvelCharacters::Scraper.new.get_main_page
+
+    count = 0
+
+    while count < 10
+      puts main_page.css('h3')[count].text
+      count +=1
+    end
+
     start
   end
 
   def start
     puts ""
-    puts "Please enter a number from 1 to 100."
+    puts "Please enter a number from 1 to 10."
+    puts ""
     input = gets.strip.to_i-1
 
     print_character(input)
