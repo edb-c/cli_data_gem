@@ -33,11 +33,11 @@ class MarvelCharacters::CLI
     character = MarvelCharacters::Characters
     puts "Super Name:          #{character.get_super_name(input)}"
 #    puts "Super Name:          #{character.super_name}"
-    puts "Real Name:           #{character.get_real_name(input)}"
-    puts "Character Type:      #{character.get_character_type(input)}"
-    puts "Number of Powers:    #{character.get_number_of_powers(input)}"
-    puts "List of powers are:"
-    puts character.get_list_of_powers(input)
+#    puts "Real Name:           #{character.get_real_name(input)}"
+#    puts "Character Type:      #{character.get_character_type(input)}"
+#    puts "Number of Powers:    #{character.get_number_of_powers(input)}"
+#    puts "List of powers are:"
+#    puts character.get_list_of_powers(input)
     puts ""
     puts '--------------------------------'
   end
