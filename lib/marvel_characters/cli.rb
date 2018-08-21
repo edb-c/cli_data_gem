@@ -1,27 +1,27 @@
 class MarvelCharacters::CLI
 
   def call
-    MarvelCharacters::Scraper.new.get_character
-    puts "Get Interesting Information about the Top 10 Marvel Characters"
+    MarvelCharacters::Scraper.new.get_main_page
+    puts ""
+    puts "Get Some Interesting Information about the Top 100 Marvel Characters"
+    puts ""
     start
   end
 
   def start
     puts ""
-    puts "Please enter a number from 1 to 10.""
-    input = gets.strip.to_i
+    puts "Please enter a number from 1 to 100."
+    input = gets.strip.to_i-1
 
     print_character(input)
 
-    selected_character = MarvelCharacters::Character.find(input.to_i)
-
     puts ""
-    puts "Would you like to see another Marvel Character? Enter Y or N"
+    puts "Would you like to see another Marvel Character- Enter Y or N?"
 
-    input = gets.strip.downcase
-    if input == "y"
+    input2 = gets.strip.downcase
+    if input2 == "y"
       start
-    elsif input == "n"
+    elsif input2 == "n"
       puts ""
       puts "Thank you for your time! Have a great day!"
       exit
@@ -32,14 +32,15 @@ class MarvelCharacters::CLI
     end
   end
 
-  def print_character(character)
-    puts "Super Name:         #{character.super_name}"
-    puts "Real Name:          #{character.real_name}"
-    puts "Number of Powers:   #{character.number_of_powers}"
+  def print_character(input)
+    character = MarvelCharacters::Characters
+    puts "Super Name:          #{character.get_super_name(input)}"
+    puts "Real Name:           #{character.get_real_name(input)}"
+    puts "Character Type:      #{character.get_character_type(input)}"
+    puts "Number of Powers:    #{character.get_number_of_powers(input)}"
     puts "List of powers are:"
-    parsed_content2.css('div.wiki-details').css('table').css('tr')[11].css('td/div[1]/div').children.each{|one_power| puts one_power}
-    puts ""  
+    puts character.get_list_of_powers(input)
+    puts ""
     puts '--------------------------------'
   end
 end #end Class
-
