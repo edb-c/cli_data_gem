@@ -26,8 +26,8 @@ class MarvelCharacters::Characters
 
   def self.get_super_name(input)
 
-    super_name = self.get_character_info(input).css('div.wiki-details').css('table').css('tr')[0].css('td').css('div').css('span').text
-    #puts @super_name
+    @@super_name = self.get_character_info(input).css('div.wiki-details').css('table').css('tr')[0].css('td').css('div').css('span').text
+    
   end
 
   def self.get_real_name(input)
