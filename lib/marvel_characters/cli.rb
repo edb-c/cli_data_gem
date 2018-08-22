@@ -31,7 +31,8 @@ class MarvelCharacters::CLI
 
   def print_character(input)
     character = MarvelCharacters::Characters
-    puts "Super Name:          #{character.get_super_name(input)}"
+    puts "Super Name: #{self.get_character_info(input)}"
+#    puts "Super Name:          #{character.get_super_name(input)}"
 #    puts "Super Name:          #{character.super_name}"
 #    puts "Real Name:           #{character.get_real_name(input)}"
 #    puts "Character Type:      #{character.get_character_type(input)}"
