@@ -21,13 +21,16 @@ class MarvelCharacters::Characters
 =end
 
   def self.get_character_info(input)
-   MarvelCharacters::Scraper.new.get_character_page(input)
+   character_page = MarvelCharacters::Scraper.new.get_character_page(input)
+   character_page.css('div.wiki-details').css('table').css('tr')[0].css('td').css('div').css('span').text
+
+
   end
 
   def self.get_super_name(input)
 
-    @@super_name = self.get_character_info(input).css('div.wiki-details').css('table').css('tr')[0].css('td').css('div').css('span').text
-    
+#    @@super_name = self.get_character_info(input).css('div.wiki-details').css('table').css('tr')[0].css('td').css('div').css('span').text
+
   end
 
   def self.get_real_name(input)
