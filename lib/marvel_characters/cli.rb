@@ -4,7 +4,7 @@ class MarvelCharacters::CLI
     puts ""
     puts "Get Some Interesting Information about the Top 10 Marvel Characters"
     puts ""
-    main_page = MarvelCharacters::Scraper.new.get_main_page
+    main_page = MarvelCharacters::Scraper.get_main_page
 
     count = 0
 
@@ -30,12 +30,13 @@ class MarvelCharacters::CLI
   end #end start
 
   def print_character(input)
-    character_array = MarvelCharacters::Characters.get_character_info(input)
 
-    puts "Super Name:       "      +   character_array[0].to_s
-    puts "Real Name:        "      +   character_array[1].to_s
-    puts "Character Type:   "      +   character_array[2].to_s
-    puts "Number of Powers: "      +   character_array[3].to_s
+   character_info = MarvelCharacters::Scraper.get_character_info(input)
+
+    puts "Super Name:       "      +   character_info.super_name
+    puts "Real Name:        "      +   character_info.real_name
+    puts "Character Type:   "      +   character_info.character_type
+    puts "Number of Powers: "      +   character_info.number_of_powers.to_s
     #puts "List of Powers:   "     +    list_of_powers
 
     #character_array[4][.each {|one_power| puts one_power}
@@ -50,8 +51,8 @@ class MarvelCharacters::CLI
     #puts "Character Type:      #{character.get_character_type(input)}"
     #puts "Number of Powers:    #{character.get_number_of_powers(input)}"
 
-    puts "List of powers are:"
-    puts MarvelCharacters::Characters.get_list_of_powers(input)
+#    puts "List of powers are:"
+#    puts MarvelCharacters::Characters.get_list_of_powers(input)
     puts ""
     puts '--------------------------------'
   end
