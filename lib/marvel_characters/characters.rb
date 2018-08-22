@@ -1,7 +1,7 @@
 class MarvelCharacters::Characters
 
   attr_accessor :super_name, :real_name, :character_type, :number_of_powers
-  
+
   @character_array = []
   @list_of_powers = []
 =begin
@@ -23,6 +23,7 @@ class MarvelCharacters::Characters
   end
 =end
 =begin
+Previous Logic Tested
  puts "The super name is " + character_array[0].to_s
  puts "The real name is " + character_array[1].to_s
  puts "The character type is " + character_array[2].to_s
@@ -34,19 +35,19 @@ class MarvelCharacters::Characters
 def self.get_character_info(input)
 
    character_page = MarvelCharacters::Scraper.new.get_character_page(input)
-   
+
    super_name = character_page.css('div.wiki-details').css('table').css('tr')[0].css('td').css('div').css('span').text
-   
+
    real_name  = character_page.css('div.wiki-details').css('table').css('tr')[1].css('td').css('div').css('span').text
-  
+
    character_type = character_page.css('div.wiki-details').css('table').css('tr')[6].css('td').css('div').css('span').text
-  
+
    number_of_powers = character_page.css('div.wiki-details').css('table').css('tr')[11].css('td/div[1]/div').length
 
 #  list_of_powers =  character_page.css('div.wiki-details').css('table').css('tr')[11].css('td/div[1]/div').children.each{|one_power|  @character_array << one_power}
-  
+
     @character_array << super_name << real_name << character_type << number_of_powers
-  
+
 #   character_array
 end
 
