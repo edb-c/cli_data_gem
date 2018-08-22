@@ -37,22 +37,8 @@ class MarvelCharacters::CLI
     puts "Real Name:        "      +   character_info.real_name
     puts "Character Type:   "      +   character_info.character_type
     puts "Number of Powers: "      +   character_info.number_of_powers.to_s
-    #puts "List of Powers:   "     +    list_of_powers
-
-    #character_array[4][.each {|one_power| puts one_power}
-    #  puts character_array[4][0].to_s
-
-#Previous Logic Tested
-    #puts "Super Name: " + character.get_character_info(input).to_s
-    #puts "Super Name: #{character.get_character_info(input)}"
-    #puts "Super Name:          #{character.get_super_name}"
-    #puts "Super Name:          #{character.super_name}"
-    #puts "Real Name:           #{character.get_real_name(input)}"
-    #puts "Character Type:      #{character.get_character_type(input)}"
-    #puts "Number of Powers:    #{character.get_number_of_powers(input)}"
-
-#    puts "List of powers are:"
-#    puts MarvelCharacters::Characters.get_list_of_powers(input)
+    puts "List of Powers:   "
+    puts character_info.list_of_powers.each{|one_power|  puts one_power.to_s}
     puts ""
     puts '--------------------------------'
   end

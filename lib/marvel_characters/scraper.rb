@@ -29,19 +29,10 @@ class MarvelCharacters::Scraper
 
     number_of_powers = character_page.css('div.wiki-details').css('table').css('tr')[11].css('td/div[1]/div').length
 
-    #  list_of_powers =  character_page.css('div.wiki-details').css('table').css('tr')[11].css('td/div[1]/div').children.each{|one_power|  @character_array << one_power}
+    list_of_powers =  character_page.css('div.wiki-details').css('table').css('tr')[11].css('td/div[1]/div').children
 
-    #character_array << super_name << real_name << character_type << number_of_powers
-
-    character_info = MarvelCharacters::Characters.new(super_name, real_name, character_type, number_of_powers)
+    character_info = MarvelCharacters::Characters.new(super_name, real_name, character_type, number_of_powers, list_of_powers)
     character_info
   end
-
-#  def self.get_list_of_powers(input)
-
-#    character_page = get_character_page(input)
-#    @list_of_powers =  character_page.css('div.wiki-details').css('table').css('tr')[11].css('td/div[1]/div').children.each{|one_power| puts one_power}
-
-#  end
 
 end #class
